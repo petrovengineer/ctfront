@@ -1,0 +1,95 @@
+@import './vars.scss';
+
+$drawer-width: 300px;
+
+.drawer {
+    text-align: center;
+    background-color: $dark-blue;
+    width: 300px;
+    min-width: 300px;
+    height: 100em;
+    position: fixed;
+    display: block;
+    color: white;
+    transition: all 0.2s ease-out;
+    // left: -$drawer-width;
+    right: -400px;
+    top: 0;
+    z-index: 901;
+    .top-header-item{
+        path{
+            fill: white;
+        }
+    }
+    a{
+        color: white;  
+    }
+    .active{
+        // color: $yellow;
+    }  
+    .dItem{
+        padding: 15px;
+        text-align: left;
+        font-family: 'Rounds';
+    }
+}
+
+.nav-toggle {
+    cursor: pointer;
+    display: block;
+    // height: $nav-size;
+    position: absolute;
+    // width: $nav-size;
+    left: 0;
+    z-index: 2;
+    path{
+        fill: white;
+    }
+}
+.nav-toggle span {
+    background-color: white;
+    display: block;
+    height: 2px;
+    left: 50%;
+    margin-left: -7px;
+    position: absolute;
+    top: 50%;
+    width: 15px;
+}
+.nav-toggle span:nth-child(1) {
+    top: calc(40% - 1px);
+}
+.nav-toggle span:nth-child(2) {
+    top: calc(50% - 1px);
+}
+.nav-toggle span:nth-child(3) {
+    top: calc(60% - 1px);
+}
+
+
+#menu-toggle:checked ~ .drawer {
+    // left: 0;
+    right: 0;
+}
+
+#menu-toggle:checked ~ .nav-toggle{
+    left: $drawer-width - 50px;
+}
+
+#menu-toggle:checked ~ .nav-toggle span{
+    background-color: white;
+}
+
+#menu-toggle:checked ~ .nav-toggle span:nth-child(3){
+    transform: rotate(45deg);
+    top: calc(50% - 1px);
+}
+
+#menu-toggle:checked ~ .nav-toggle span:nth-child(1){
+    transform: rotate(-45deg);
+    top: calc(50% - 1px);
+}
+
+#menu-toggle:checked ~ .nav-toggle span:nth-child(2){
+    opacity: 0;
+}

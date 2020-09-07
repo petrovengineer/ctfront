@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import Drawer from '../components/Drawer'
-// import styles from '../styles/Home.module.css'
+import Layout from '../components/Layout'
+import Gas from '../components/Gas'
 
 export default function Home() {
-  return (
-    <>
-    <Drawer/>
-    <div className="p-3">
-      <div className="paper p-3">
-        Hellow
-      </div>
-    </div>
-    </>
+    return (
+      <Layout>
+        <>
+          Drawer
+        </>
+        <div className="paper p-3">
+          <Gas/>
+        </div>
+      </Layout>
   )
 }

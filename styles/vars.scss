@@ -1,3 +1,9 @@
 $gray: #4B4B4B;
+$gray2: #BDBDBD;
 $blue: #2D9CDB;
 $dark-blue: #0A1747;
+
+@function darker($color, $tone) {
+    $adjust: -16*$tone;
+    @return adjust-color($color, $red: $adjust, $green: $adjust, $blue: $adjust);
+  }

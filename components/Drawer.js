@@ -1,20 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Close from '../imgs/svg/close.svg'
 import styles from '../styles/Drawer.module.scss'
 
-const Drawer = ({drawer, setDrawer, foodtypes})=>{
+const Drawer = ({drawer, setDrawer, children})=>{
     return (
         <>
-            <input type="checkbox" id="menu-toggle" 
-            className="is-hidden" 
-            checked={drawer}
-            style={{display:'none'}}
-            onChange={()=>{setDrawer(!drawer)}}
-            ></input>
-            <div className='drawer d-fixed d-lg-none'>
-                <Close height="20" width="20" className="nav-toggle m-3"  onClick={()=>{setDrawer(false)}}/>
+
+            <div className={[styles.drawer, !drawer?styles['drawer-closed']:null, 'd-fixed'].join(' ')}>
+                <label className={styles['nav-toggle']} onClick={()=>{setDrawer(!drawer)}}>
+                    <span className={drawer?styles['top-checked']:null}/>
+                    <span className={drawer?styles['middle-checked']:null}/>
+                    <span className={drawer?styles['bottom-checked']:null}/>
+                </label>
+                {children}
             </div>
-    </>
+        </>
     )
 }
 

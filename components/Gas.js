@@ -2,16 +2,50 @@ import React, { useState } from 'react'
 import styles from '../styles/Gas.module.scss'
 
 const Gas = ()=>{
+    const [add, showAdd] = useState(false);
     return(
         <>
             <div className="d-flex justify-content-between mb-4">
                 <div>
                     <span className="bold title">Расход газа Армада Парк</span>
-                    <span className="link ml-3">Добавить</span>
+                    <span className="link ml-3" onClick={()=>showAdd(true)}>Добавить</span>
                 </div>
                 <div className="bold title blue">
                     Сентябрь 2020
                 </div>
+            </div>
+            <div className="d-flex flex-column mb-4">
+                <div className="d-flex align-items-center mb-2">
+                    <div className={styles['input-title']}>Показания мех счётчика</div>
+                    <div className="w-50 ml-3">
+                        <input className="input"></input>
+                    </div>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                    <div className={styles['input-title']}>T°C</div>
+                    <div className="w-50 ml-3">
+                        <input className="input"></input>
+                    </div>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                    <div className={styles['input-title']}>Показания корректора Vpt-01</div>
+                    <div className="w-50 ml-3">
+                        <input className="input"></input>
+                    </div>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                    <div className={styles['input-title']}>Vt-01</div>
+                    <div className="w-50 ml-3">
+                        <input className="input"></input>
+                    </div>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                    <div className={styles['input-title']}>ГКал</div>
+                    <div className="w-50 ml-3">
+                        <input className="input"></input>
+                    </div>
+                </div>
+                <div className="btn">Сохранить</div>
             </div>
             <div className={styles['table-title']+" mb-3 pb-2 d-flex bold align-items-center"} style={{textAlign:'center'}}>
                 <span style={{width:'9%', textAlign:'left'}}>Дата</span>
